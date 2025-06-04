@@ -10,3 +10,12 @@ beautifulsoup4
 scipy
 regex
 distance
+streamlit
+numpy
+gdown
+scikit-learn
+fuzzywuzzy
+python-Levenshtein
+nltk
+distance
+
