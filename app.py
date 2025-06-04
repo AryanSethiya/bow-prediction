@@ -9,6 +9,15 @@ import gdown
 import os
 import pickle
 import streamlit as st
+import nltk
+
+# Download stopwords if not already present
+try:
+    from nltk.corpus import stopwords
+    stopwords.words('english')
+except LookupError:
+    nltk.download('stopwords')
+
 
 @st.cache_resource
 def load_artifacts():
