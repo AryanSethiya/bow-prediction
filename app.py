@@ -5,11 +5,22 @@ import numpy as np
 from preprocess import preprocess  # Assuming you'll save the preprocessing function in a separate file
 
 # Load the model and vectorizer
+import gdown
+import os
+import pickle
+import streamlit as st
+
 @st.cache_resource
 def load_artifacts():
+    if not os.path.exists("model.pkl"):
+        gdown.download("https://drive.google.com/uc?id=1UyTqXN_5pIO2hvpEub3GHgvOBegRfYP1", "model.pkl", quiet=False)
+    if not os.path.exists("cv.pkl"):
+        gdown.download("https://drive.google.com/uc?id=15LqDMv7qZtUGTfOxBTrkPFxI-bUBvqMv", "cv.pkl", quiet=False)
+
     model = pickle.load(open('model.pkl', 'rb'))
     cv = pickle.load(open('cv.pkl', 'rb'))
     return model, cv
+
 
 model, cv = load_artifacts()
 
